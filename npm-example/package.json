@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare:husky": "cd .. && husky install npm-example/.husky",
+    "prepare:husky": "cd .. && husky install npm-example",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "hello": "echo hello world!",
