@@ -30,7 +30,7 @@ const solveAsync = async (a, b, c) => {
   if (b * b - 4 * a * c < 0.0) {
     throw Error(`Equation: ${a}x^2 + ${b}x + ${c} has no solution!`)
   }
-  if (b * b - 4 * a * c === 0.0) {
+  if (b * b - 4 * a * c == 0.0) {
     return (-1 * b) / (2 * a)
   }
   return [
