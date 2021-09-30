@@ -1,7 +1,7 @@
 
 const solve = (a, b, c) => {
   if (b * b - 4 * a * c < 0.0) return;
-  if (b * b - 4 * a * c == 0.0) return (-1 * b) / (2 * a);
+  if (b * b - 4 * a * c === 0.0) return (-1 * b) / (2 * a);
   return [
     (-1 * b + Math.sqrt(b * b - 4 * a * c)) / (2 * a),
     (-1 * b - Math.sqrt(b * b - 4 * a * c)) / (2 * a)
