@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare:husky": "cd .. && husky install npm-example/.husky",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "hello": "echo hello world!",
@@ -21,6 +22,7 @@
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^7.0.2"
   }
 }
