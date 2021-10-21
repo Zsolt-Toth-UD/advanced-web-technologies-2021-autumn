@@ -1,5 +1,7 @@
 var express = require('express');
+const { validationResult } = require('express-validator');
 var router = express.Router();
+const greetingsRequestDto = require('./dto/greetingsRequestDto');
 const greetingsController = require('../controller/greetingsController');
 
 /* GET home page. */
@@ -53,7 +55,12 @@ router.get('/hello/:name', (req,res,nxt)=> {
  *      '200':
  *        description: OK
  */
-router.post('/hello', (req,res,next)=>{
+router.post('/hello', greetingsRequestDto, (req,res,next)=>{
+  const validationErrors = validationResult(req);
+  if(!validationErrors.isEmpty()){
+    res.status(400).send(validationErrors);
+    return;
+  }
   console.log({body: req.body});
   name = req.body['name'] || 'World';
   res.status(200).send(`Hello ${name}!`);
