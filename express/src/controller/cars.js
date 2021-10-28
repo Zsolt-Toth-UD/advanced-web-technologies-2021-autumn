@@ -1,10 +1,14 @@
-const {readAll} = require('../service/cars');
+const {readAll, readByPlateNo, createCar} = require('../service/cars');
 
 exports.readAllCars = (req, res) =>{
     res.status(200).send(readAll());
 }
 
 exports.readCarByPlateNo = (req, res) =>{
-    console.log('asdf');
-    res.status(200).send({});
+    res.status(200).send(readByPlateNo(req.params['plate_no']));
+}
+
+exports.createCar = (req, res) =>{
+    createCar(req.body);
+    res.status(200).send(req.body);
 }
