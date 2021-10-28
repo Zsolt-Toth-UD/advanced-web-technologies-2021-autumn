@@ -8,8 +8,11 @@ let database = [
     }
 ];
 
-exports.readAll = () => {
-    return database;
+exports.readAll = (filterCriteria) => {
+    console.log({filterCriteria: filterCriteria});
+    return database.filter((record) => {
+        return Object.keys(filterCriteria).reduce((acc, currKey) => record[currKey] === filterCriteria[currKey], true);
+    });
 }
 
 exports.readByPlateNo = (plate_no) => {

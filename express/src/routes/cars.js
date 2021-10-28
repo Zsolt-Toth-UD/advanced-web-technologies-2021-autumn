@@ -4,6 +4,7 @@ const {readAllCars, readCarByPlateNo, createCar} = require('../controller/cars')
 const {validationResult} = require('express-validator');
 const carReadRequestDto = require('./dto/carReadRequestDto');
 const carRecordRequestDto = require('./dto/carRecordRequestDto');
+const carReadAllRequestDto = require('./dto/carReadAllRequestDto');
 
 const validateRequest = (req, res, next) => {
     const errors = validationResult(req);
@@ -20,11 +21,24 @@ const validateRequest = (req, res, next) => {
  * /cars:
  *  get:
  *    summary: Hello
+ *    parameters:
+ *      - name: color
+ *        in: query
+ *        type: string
+ *        required: false
+ *      - name: manufacturer
+ *        in: query
+ *        type: string
+ *        required: false
+ *      - name: model
+ *        in: query
+ *        type: string
+ *        required: false
  *    responses:
  *      '200':
  *        description: OK
  */
-router.get('/', readAllCars);
+router.get('/', carReadAllRequestDto, validateRequest, readAllCars);
 
 /**
  * @swagger

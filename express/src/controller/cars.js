@@ -1,7 +1,7 @@
 const {readAll, readByPlateNo, createCar} = require('../service/cars');
 
 exports.readAllCars = (req, res) =>{
-    res.status(200).send(readAll());
+    res.status(200).send(readAll(req.query));
 }
 
 exports.readCarByPlateNo = (req, res) =>{
